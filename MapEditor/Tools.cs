@@ -12,13 +12,16 @@ namespace Tools
     {
         public int ID;
         public Image image;
+        public Name name;
 
         <param name="id">ID</param>
         <param name="img">Image</param>
+        <param name="name">Name</param>
         
-        public TileSetElement(int id, Image img)
+        public TileSetElement(int id, Image img, Name name)
             ID = id;
             Image = img; 
+            Name = name;
     }
 
     public class 
