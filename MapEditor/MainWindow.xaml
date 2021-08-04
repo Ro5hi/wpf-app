@@ -28,6 +28,7 @@
                 <Button Click="SetPaintModeFill" Content="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="10" Canvas.Top="99"/>
                 <Button Click="SetPaintModeDeleteFill" Content="Delete Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="10" Canvas.Top="124"/>
             </Canvas>
+            <Grid Height="705" Canvas.Left="10" Canvas.Top="10" Width="816"/>
         </Canvas>
 
 

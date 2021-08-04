@@ -8,21 +8,16 @@ using System.Windows.Media.Imaging;
 
 namespace Tools
 {
-    public class Element
+    public enum EditMode
     {
-        public int ID;
-        public Image image;
-        public Name name;
-
-        <param name="id">ID</param>
-        <param name="img">Image</param>
-        <param name="name">Name</param>
-        
-        public TileSetElement(int id, Image img, Name name)
-            ID = id;
-            Image = img; 
-            Name = name;
+        Draw,
+        Fill,
+        Erase,
+        DeleteFill
     }
 
-    public class 
+    public class ToolsManager
+    {
+        private EditMode m_EditMode = EditMode.Draw;
+    }
 }
