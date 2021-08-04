@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Map Editor" Height="800" Width="1038">
+        Title="Map Editor" Height="824" Width="1216">
     <Grid Margin="0,0,344,17">
         <DockPanel Margin="10,0,0,-18" HorizontalAlignment="Left" Width="704">
             <Menu DockPanel.Dock="Top">
@@ -16,15 +16,26 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <Canvas Background="DarkGray" Margin="36,37,14,29" RenderTransformOrigin="0.506,0.518">
-            <TextBlock FontSize="20" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="194" Canvas.Left="10" Canvas.Top="10"><Run Text="Preview"/><LineBreak/><Run/></TextBlock>
-            <Canvas Height="400" HorizontalAlignment="Left" Name="canvas1" VerticalAlignment="Top" Width="400" Canvas.Left="10" Canvas.Top="39" />
+
+        <Canvas x:Name="Preview" Background="DarkGray" Margin="36,37,0,29" RenderTransformOrigin="0.506,0.518" HorizontalAlignment="Left" Width="836">
+            <Canvas Height="156" Width="101" Canvas.Left="10" Canvas.Top="10">
+                <Canvas.Background>
+                    <SolidColorBrush Color="White" Opacity="0.35"/>
+                </Canvas.Background>
+                <TextBlock FontSize="20" TextWrapping="Wrap" Height="34" Width="46" Canvas.Left="24" Canvas.Top="10" Text="Tools"/>
+                <Button Click="SetPaintModePaint" Content="Draw" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="10" Canvas.Top="49"/>
+                <Button Click="SetPaintModeErase" Content="Erase" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="10" Canvas.Top="74"/>
+                <Button Click="SetPaintModeFill" Content="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="10" Canvas.Top="99"/>
+                <Button Click="SetPaintModeDeleteFill" Content="Delete Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="10" Canvas.Top="124"/>
+            </Canvas>
         </Canvas>
-        <Canvas Background="DarkGray" HorizontalAlignment="Left" Height="701" Margin="714,37,0,0" VerticalAlignment="Top" Width="302">
-            <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="194"><Run Text="TileSets"/><LineBreak/><Run/></TextBlock>
-            <Canvas Height="407" Background="Gray" Name="TileSetCanvas" Width="272" Canvas.Left="15" Canvas.Top="144" />
-            <Canvas Height="109" Background="Gray" x:Name="TileSetCanvas_Copy" Width="272" Canvas.Left="15" Canvas.Top="568" />
-            <ComboBox Canvas.Left="15" Canvas.Top="63" Width="272"/>
+
+
+        <Canvas Background="DarkGray" Margin="933,37,-300,29">
+            <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="194"><Run Text="TileSet Elements"/><LineBreak/><Run/></TextBlock>
+            <Canvas Height="343" Background="Gray" Name="TileSetCanvas" Width="220" Canvas.Left="10" Canvas.Top="157" />
+            <ComboBox Canvas.Left="10" Canvas.Top="68" Width="220"/>
+            <Canvas Height="170" Background="Gray" x:Name="TileSetCanvas_Copy" Width="220" Canvas.Left="10" Canvas.Top="528" />
         </Canvas>
     </Grid>
 </Window>

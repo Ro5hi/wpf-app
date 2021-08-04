@@ -24,5 +24,25 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void SetPaintModeDeleteFill(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SetPaintModeFill(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SetPaintModeErase(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SetPaintModePaint(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
