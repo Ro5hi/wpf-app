@@ -1,0 +1,15 @@
+{
+    "biome": "Grassland",
+    "file_width": 16,
+    "file_height": 16,
+    "tile_width": 8,
+    "tile_height": 8,
+    "tiles": {
+        "0": {
+            "top_left": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    }
+}
