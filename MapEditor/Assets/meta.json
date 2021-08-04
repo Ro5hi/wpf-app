@@ -1,14 +1,17 @@
 [
     {
         "id": 0,
-        "name": "Grass"
+        "name": "Grass",
+        "image":  "Assets/Grass/Grass.png"
     },
     {
         "id": 1,
-        "name": "Desert"
+        "name": "Desert",
+        "image":  "Assets/Desert/Desert.png"
     },
     {
         "id": 2,
         "name": "DesertBiome"
+        "image":  "Assets/DesertBiome/DesertBiome.png"
     }
 ]
