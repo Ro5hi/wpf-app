@@ -20,4 +20,10 @@ namespace Tools
     {
         private EditMode m_EditMode = EditMode.Draw;
     }
+
+    public EditMode DrawOnGrid(EditMode editMode)
+    {
+        m_EditMode = editMode;
+        return m_EditMode;
+    }
 }

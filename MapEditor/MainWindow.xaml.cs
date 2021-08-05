@@ -21,44 +21,35 @@ namespace MapEditor
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Tools tools;
-        private TilesetElements tilesetElements;
+        private Tools m_tools;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            tools = new Tools();
-            tilesetElements = new TilesetElements();
-
+            m_tools = new Tools();
 
         }
 
         private void SetPaintModeDeleteFill(object sender, RoutedEventArgs e)
         {
-
+            m_Tools.DrawOnGrid(EditMode.DeleteFill);
         }
 
         private void SetPaintModeFill(object sender, RoutedEventArgs e)
         {
-
+            m_Tools.DrawOnGrid(EditMode.Fill);
         }
 
         private void SetPaintModeErase(object sender, RoutedEventArgs e)
         {
-
+            m_Tools.DrawOnGrid(EditMode.Erase);
         }
 
-        private void SetPaintModePaint(object sender, RoutedEventArgs e)
+        private void SetPaintModeDraw(object sender, RoutedEventArgs e)
         {
-
+            m_Tools.DrawOnGrid(EditMode.Draw);
         }
 
-        private class TilesetElements
-        {
-        }
-        private class Tools
-        {
-        }
     }
 }
