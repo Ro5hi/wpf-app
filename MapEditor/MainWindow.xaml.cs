@@ -28,6 +28,7 @@ namespace MapEditor
             InitializeComponent();
 
             m_tools = new Tools();
+            m_TileSetManager = new TileSetManager();
 
         }
 
