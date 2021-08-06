@@ -28,6 +28,21 @@ namespace Tools
             m_TileSetManager = tileSetManager;
         }
 
+        public EditMode DrawOnGrid(EditMode editMode)
+        {
+            m_EditMode = editMode;
+            return m_EditMode; 
+        }
+
+        public EditMode DrawOnGridActive() { return m_EditMode; }
+
+        public EditMode DrawOnGridNew(EditMode editMode)
+        {
+            m_EditMode = editMode;
+            return m_EditMode;
+        }
+
+
         
     }
 
