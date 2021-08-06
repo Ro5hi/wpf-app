@@ -21,6 +21,7 @@ namespace MapEditor
             m_Image = img;
             m_Name = name;
         }
+    }
 
         public class TileSetManager
         {
@@ -36,6 +37,49 @@ namespace MapEditor
             {
                 m_TileSetCanvas = tileSetCanvas;
             }
+
+            public TileSetElement GetTileSetFromImage(Image img)
+            {
+                for (int i = 0; i < m_TileSetElements.Count; i++)
+                {
+                    if (m_TileSetElements[i].m_Image == img)
+                    {
+                        return m_TileSetElements[i];
+                    }
+                }
+                return null;
+            }
+
+            public TileSetElement GetTileSetID(int id)
+            {
+                for (int i = 0; i < m_TileSetElements.Count; i++)
+                {
+                    if (m_TileSetElements[i].m_ID == id)
+                    {
+                        return m_TileSetElements[i];
+                    }
+                }
+                return null;
+            }
+
+            public void LoadTile(int tileWidth, int tileHeight, string loadedPath)
+            {
+                BitmapImage img = new BitmapImage(new Uri(loadedPath, UriKind.Absolute));
+
+                m_LoadTileSet = loadedPath;
+
+                double xAmountOfTile = img.PixelWidth / tileWidth;
+                double yAmountOfTile = img.PixelHeight / tileHeight;
+
+                int positionX = -1;
+                int positionY = 0;
+
+                if (m_TileSetCanvas.Children.Count > 0)
+                {
+                    m_TileSetCanvas.Children.Clear();
+                    m_TileSetElements.Clear();
+                }
+            }
+
         }
-    }
 }

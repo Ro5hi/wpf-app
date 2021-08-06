@@ -19,16 +19,17 @@ namespace MapEditor
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window 
     {
-        private Tools m_tools;
+        private ToolsManager m_Tools;
+        private TileSetManager m_tileSetManager;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            m_tools = new Tools();
-            m_TileSetManager = new TileSetManager();
+            m_Tools = new ToolsManager();
+            m_tileSetManager = new TileSetManager();
 
         }
 

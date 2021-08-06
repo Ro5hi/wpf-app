@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace Tools
+namespace MapEditor
 {
     public enum EditMode
     {
@@ -19,13 +19,12 @@ namespace Tools
     public class ToolsManager
     {
         private EditMode m_EditMode = EditMode.Draw;
-        private MapEditor.TileSetElement.TileSetManager m_TilesetManager;
+        private TileSetManager m_TilesetManager;
 
 
-        public void Init(MapEditor.TileSetElement.TileSetManager tileSetManager,
-                         MapEditor.TileSetElement.TileSetManager m_TileSetManager)
+        public void Init(TileSetManager tileSetManager)
         {
-            m_TileSetManager = tileSetManager;
+            m_TilesetManager = tileSetManager;
         }
 
         public EditMode DrawOnGrid(EditMode editMode)
@@ -42,6 +41,29 @@ namespace Tools
             return m_EditMode;
         }
 
+        public void MouseOverGrid(object sender, MouseEventArgs e)
+        {
+            bool mouseDown = System.Windows.Input.Mouse.LeftButton == MouseButtonState.Pressed;
+
+            if (mouseDown)
+            {
+                Image img = (Image)sender;
+                double x = Canvas.GetLeft(img);
+                double y = Canvas.GetTop(img);
+            }
+        }
+
+        public void DrawTileBasedOnID(TileSetElement element, int id)
+        {
+            if (id == -1)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
 
         
     }
