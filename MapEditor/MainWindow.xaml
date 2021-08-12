@@ -17,13 +17,13 @@
             </Menu>
         </DockPanel>
 
-        <Canvas x:Name="Content" Background="#FF4D4D4D" Margin="36,0,19,29" RenderTransformOrigin="0.506,0.518" Height="819" VerticalAlignment="Bottom">
+        <Canvas x:Name="Toolbar" Background="#FF4D4D4D" Margin="36,0,19,29" RenderTransformOrigin="0.506,0.518" Height="819" VerticalAlignment="Bottom">
             <Canvas Height="759" Width="186" Canvas.Left="32" Canvas.Top="30">
                 <Canvas.Background>
                     <SolidColorBrush Color="White" Opacity="0.35"/>
                 </Canvas.Background>
                 <TextBlock x:Name="Header1" FontSize="20" TextWrapping="Wrap" Height="34" Width="46" Canvas.Left="70" Canvas.Top="14" Text="Tools" Foreground="White"/>
-                <Button x:Name="Draw" Click="SetPaintModePaint" Content="Draw" Width="74" Canvas.Left="56" Canvas.Top="53"/>
+                <Button x:Name="Draw" Click="SetPaintModeDraw" Content="Draw" Width="74" Canvas.Left="56" Canvas.Top="53"/>
                 <Button x:Name="Erase" Click="SetPaintModeErase" Content="Erase" Width="74" Canvas.Left="56" Canvas.Top="78"/>
                 <Button x:Name="Fill" Click="SetPaintModeFill" Content="Fill" Width="74" Canvas.Left="56" Canvas.Top="103"/>
                 <Button x:Name="Delete_Fill" Click="SetPaintModeDeleteFill" Content="Delete Fill" Width="74" Canvas.Left="56" Canvas.Top="128"/>
@@ -46,11 +46,11 @@
                     <Label Content="Stats" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
                 </Grid>
             </Canvas>
-            <DataGrid x:Name="TestGrid" Height="759" Canvas.Left="254" Canvas.Top="30" Width="1036" HorizontalGridLinesBrush="Black" GridLinesVisibility="All" Background="#FFBFBFBF" BorderBrush="#FFE2E2E2" Foreground="White">
+            <!--<DataGrid x:Name="TestGrid" Height="759" Canvas.Left="254" Canvas.Top="30" Width="1036" HorizontalGridLinesBrush="Black" GridLinesVisibility="All" Background="#FFBFBFBF" BorderBrush="#FFE2E2E2" Foreground="White">
                 <DataGrid.AlternatingRowBackground>
                     <ImageBrush ImageSource="/Assets/Desert/Desert.png"/>
                 </DataGrid.AlternatingRowBackground>
-            </DataGrid>
+            </DataGrid>-->
         </Canvas>
     </Grid>
 

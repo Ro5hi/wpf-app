@@ -50,6 +50,8 @@ namespace MapEditor
                 Image img = (Image)sender;
                 double x = Canvas.GetLeft(img);
                 double y = Canvas.GetTop(img);
+
+
             }
         }
 

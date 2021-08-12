@@ -1,85 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+using System.IO;
+using Newtonsoft.Json;
 
-namespace MapEditor
+namespace Aeon.Data.Tilesets
 {
-
-    public class TileSetElement
+    public static class TilesetManager
     {
-        public int m_ID;
-        public Image m_Image;
-        public NameScope m_Name;
-
-        public TileSetElement(int ID, Image img, NameScope name)
+        static Dictionary<int, Tileset> _tilesets 
+            = new Dictionary<int, Tileset>();
+            
+        public static void Init(string tilesetDirectory)
         {
-            m_ID = ID;
-            m_Image = img;
-            m_Name = name;
+            string json = File.ReadAllText($@"{tilesetDirectory}\meta.json");
+            TilesetIdentifier[] identifiers = JsonConvert.DeserializeObject<TilesetIdentifier[]>(json);
+
+            foreach (TilesetIdentifier identifier in identifiers)
+            {
+                string path = $@"{tilesetDirectory}\{identifier.Name}";
+                json = File.ReadAllText($@"{path}\meta.json");
+                TilesetMetadata metadata = JsonConvert.DeserializeObject<TilesetMetadata>(json);
+                Tileset ts = new Tileset(path, identifier, metadata);
+                _tilesets.Add(ts.Id, ts);
+            }
+        }
+
+        public static Tileset GetTilesetById(int id)
+        {
+            if (_tilesets.ContainsKey(id))
+            {
+                return ((Tileset)_tilesets[id].Clone()).LoadImage();
+            }
+
+            return null;
+        }
+
+        public static Tileset GetTilesetByName(string name)
+        {
+            foreach (Tileset tileset in _tilesets.Values)
+            {
+                if (tileset.Name == name)
+                {
+                    return ((Tileset)tileset.Clone()).LoadImage();
+                }
+            }
+
+            return null;
+        }
+
+        public static Tileset[] GetAllTilesetsOfBiomeType(string biome)
+        {
+            List<Tileset> tilesets = new List<Tileset>();
+            foreach (Tileset tileset in _tilesets.Values)
+            {
+                if (tileset.Biome.Equals(biome))
+                {
+                    tilesets.Add(((Tileset)tileset.Clone()).LoadImage());
+                }
+            }
+
+            return tilesets.ToArray();
         }
     }
-
-        public class TileSetManager
-        {
-            private Canvas m_TileSetCanvas;
-
-            private List<TileSetElement> m_TileSetElements = new List<TileSetElement>();
-
-            public TileSetElement m_SelectedTileSetElement;
-
-            public string m_LoadTileSet;
-
-            public void Init(Canvas tileSetCanvas)
-            {
-                m_TileSetCanvas = tileSetCanvas;
-            }
-
-            public TileSetElement GetTileSetFromImage(Image img)
-            {
-                for (int i = 0; i < m_TileSetElements.Count; i++)
-                {
-                    if (m_TileSetElements[i].m_Image == img)
-                    {
-                        return m_TileSetElements[i];
-                    }
-                }
-                return null;
-            }
-
-            public TileSetElement GetTileSetID(int id)
-            {
-                for (int i = 0; i < m_TileSetElements.Count; i++)
-                {
-                    if (m_TileSetElements[i].m_ID == id)
-                    {
-                        return m_TileSetElements[i];
-                    }
-                }
-                return null;
-            }
-
-            public void LoadTile(int tileWidth, int tileHeight, string loadedPath)
-            {
-                BitmapImage img = new BitmapImage(new Uri(loadedPath, UriKind.Absolute));
-
-                m_LoadTileSet = loadedPath;
-
-                double xAmountOfTile = img.PixelWidth / tileWidth;
-                double yAmountOfTile = img.PixelHeight / tileHeight;
-
-                int positionX = -1;
-                int positionY = 0;
-
-                if (m_TileSetCanvas.Children.Count > 0)
-                {
-                    m_TileSetCanvas.Children.Clear();
-                    m_TileSetElements.Clear();
-                }
-            }
-
-        }
 }
